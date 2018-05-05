@@ -1,0 +1,159 @@
+<body [ngStyle]="{'background-image': 'url(' + bgEditForm + ')'}">
+
+
+
+<div class="secondBG">
+<div class="container">
+<div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+
+            <form (ngSubmit)="onAddRecipe()" [formGroup]="recipeForm">
+            
+            <div class="group">
+              <label for="name" class="label">
+                    Nazwa przepisu (same litery, od 1 do 50 znaków)
+                    <i class="fa fa-pencil" style="font-size:24px;padding-left:5px;"></i>
+              </label>
+              <input 
+                  id="name" 
+                  name="name"
+                  formControlName="name"
+                  type="text" 
+                  class="recipeName"
+              >
+              <span 
+                 class="help-block" 
+                 *ngIf="(name)" 
+                 style="color:red;margin-left:35%;">
+                    <b>Musisz wprowadzić poprawną nazwę przepisu!</b>
+              </span>
+            </div>
+
+
+            <div class="group">
+              <label for="timeForPrepare" class="label">
+                    Czas przygotowania (minuty 1-60)
+                    <i class="fa fa-clock-o" style="font-size:24px;padding-left:5px;"></i>
+              </label>
+              <input 
+                  id="timeForPrepare" 
+                  name="timeForPrepare"
+                  required 
+                  type="number"
+                  formControlName="timeForPrepare" 
+                  pattern="(60|([1-5]?[0-9]))" 
+                  class="time" 
+              >
+              <span 
+                  class="help-block" 
+                  *ngIf="(timeForPrepare)" 
+                  style="color:red;margin-left:35%;">
+                    <b>Musisz wybrać poprawny czas przygotowania!</b>
+              </span>
+            </div>
+
+
+       <!--     <div class="group">
+              <label for="city" class="label">Produkty</label>
+              <input id="city" name="city" ngModel required type="text" class="input" #city="ngModel">
+              <span class="help-block" *ngIf="!city.valid && city.touched" style="color:red;">Musisz wprowadzić jakieś produkty!</span>
+            </div> -->
+
+
+            <div class="group">
+              <label for="difLvl" class="label">
+                      Określ trudność wykonania (skala 1-10)
+                      <i class="fa fa-dashboard" style="font-size:24px;padding-left:5px;"></i>
+              </label>
+              <input 
+                  id="difLvl" 
+                  name="difLvl" 
+                  required
+                  formControlName="difLvl" 
+                  type="number" 
+                  pattern="(10|([0-9]))" 
+                  class="lvl"
+              >
+              <span 
+                  class="help-block" 
+                  *ngIf="(difLvl)" 
+                  style="color:red;margin-left:37%;">
+                      <b>Określ trudność przygotowania posiłku !</b>
+              </span>
+            </div>
+
+
+            <div class="group">
+              <label for="quality" class="label">
+                      Określ jakość przepisu (skala 1-10)
+                      <i class="fa fa-thumbs-o-up" style="font-size:24px;padding-left:5px;"></i>
+              </label>
+              <input 
+                  id="quality" 
+                  name="quality" 
+                  required
+                  formControlName="quality" 
+                  type="number" 
+                  pattern="(10|([0-9]))" 
+                  class="quality" 
+              >
+              <span 
+                  class="help-block" 
+                  *ngIf="(quality)" 
+                  style="color:red;margin-left:42%;">
+                      <b>Określ jakość przepisu!</b>
+              </span>
+            </div>
+
+
+            <div class="group">
+              <label for="about" class="label">
+                      Opis (od 1 do 550 znaków)
+                      <i class="fa fa-edit" style="font-size:24px;padding-left:5px;"></i>
+              </label>
+              <textarea 
+                  rows="8" 
+                  cols="50" 
+                  id="about" 
+                  name="about" 
+                  type="text"
+                  formControlName="about" 
+                  pattern=".{1,550}" 
+                  class="input" 
+                  required
+              >
+              </textarea>
+              <span 
+                  class="help-block" 
+                  *ngIf="(about)" 
+                  style="color:red;margin-left:37%;">
+                      <b>Wprowadź poprawny opis przepisu !</b>
+              </span>
+            </div>
+
+
+            <div class="group">
+              <input 
+                  type="button" 
+                  class="button"
+                  (click)="onUpdateFormByDownloadedData()"
+                  value="Aktualizuj formularz">
+            </div>
+
+            <div class="group">
+              <input 
+                  type="submit" 
+                  class="button"
+                  value="Zapisz zmiany" 
+                  [disabled]="!recipeForm.valid">
+            </div>
+
+           
+            </form>
+         
+  </div>
+</div>
+</div>
+</div>
+</body>
