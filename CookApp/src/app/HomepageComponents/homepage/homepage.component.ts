@@ -3,7 +3,6 @@ import { FilterTimeForPreparePipe } from './../../pipes/filter-time-for-prepare.
 import { FilterNameOfRecipePipe } from './../../pipes/filter-name-of-recipe.pipe';
 import { DataService } from './../../data/data.service';
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Component({
@@ -11,6 +10,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
+
+
 export class HomepageComponent implements OnInit {
 
 bgHomePage: string;
@@ -22,8 +23,6 @@ isCollapsed = true;
 idChecked: number;
 orderString = '';
 recipeObject = {};
-recipeEmitter = new BehaviorSubject<any>({});
-currentRecipeEmitter = this.recipeEmitter.asObservable();
 
 
 max = 10;
@@ -115,8 +114,7 @@ this.recipeObject = {
 };
 
 
-  console.log(this.recipeObject);
-  this.recipeEmitter.next(this.recipeObject);
+  this.dataService.sendRecipeToEditComponent(this.recipeObject);
   this.router.navigate(['/edycja']);
 
 }

@@ -7,6 +7,7 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class DataService{
   allRecipes: any;
+  recipeToEdit: any;
   baseUrl: string = 'http://localhost:5000/api/recipes';
 
   constructor(private http: Http) { }
@@ -78,5 +79,14 @@ rateRecipe(Id: number, rate: string) {
 
 }
 
+sendRecipeToEditComponent(data) {
+    this.recipeToEdit = data;
+    this.makeRecipeToEditObservable();
+}
+
+
+makeRecipeToEditObservable(): Observable<any> {
+    return Observable.of(this.recipeToEdit);
+}
 
 }
