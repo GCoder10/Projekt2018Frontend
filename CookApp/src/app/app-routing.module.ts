@@ -1,9 +1,10 @@
-import { EditRecipeComponent } from './EditRecipeComponent/edit-recipe/edit-recipe.component';
-import { AddFormComponent } from './HeadersComponents/add-form/add-form.component';
-import { PageNotFoundComponent } from './PageNotFoundComponent/page-not-found/page-not-found.component';
-import { HomepageComponent } from './HomepageComponents/homepage/homepage.component';
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { PageNotFoundComponent } from './shared/components/PageNotFoundComponent/page-not-found/page-not-found.component';
+import { EditRecipeComponent } from './EditRecipeComponent/edit-recipe/edit-recipe.component';
+import { AddFormComponent } from './AddFormComponents/add-form/add-form.component';
+import { HomepageComponent } from './HomepageComponents/homepage/homepage.component';
+
 
 const appRoutes: Routes = [
 

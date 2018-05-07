@@ -1,8 +1,8 @@
-import { Router } from '@angular/router';
-import { FilterTimeForPreparePipe } from './../../pipes/filter-time-for-prepare.pipe';
-import { FilterNameOfRecipePipe } from './../../pipes/filter-name-of-recipe.pipe';
-import { DataService } from './../../data/data.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FilterTimeForPreparePipe } from './../../shared/pipes/filter-time-for-prepare.pipe';
+import { FilterNameOfRecipePipe } from './../../shared/pipes/filter-name-of-recipe.pipe';
+import { DataService } from './../../shared/services/data.service';
 
 
 @Component({

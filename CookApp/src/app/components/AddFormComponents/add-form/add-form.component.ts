@@ -1,7 +1,8 @@
-import { DataService } from './../../data/data.service';
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { DataService } from './../../shared/services/data.service';
+
 
 @Component({
   selector: 'app-add-form',
