@@ -1,30 +1,25 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { FilterTimeForPreparePipe } from './../../shared/pipes/filter-time-for-prepare.pipe';
 import { FilterNameOfRecipePipe } from './../../shared/pipes/filter-name-of-recipe.pipe';
 import { DataService } from './../../shared/services/data.service';
 
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  selector: 'app-recipes',
+  templateUrl: './recipes.component.html',
+  styleUrls: ['./recipes.component.css']
 })
 
 
-export class HomepageComponent implements OnInit {
+export class RecipesComponent implements OnInit {
 
-bgHomePage: string;
+
 dataOfAllRecipes: any;
 dataOfAllRecipes2: Array<any> = [];
 showtable: boolean;
-Button1 = '1';
 isCollapsed = true;
 idChecked: number;
-orderString = '';
-recipeObject = {};
-
-
 max = 10;
 rate = 1;
 isReadonly = true;
@@ -32,6 +27,9 @@ overStar: number;
 percent: number;
 rateByUser = 1;
 isReadonlyUserRating = false;
+orderString = '';
+recipeObject = {};
+
 
 
 
@@ -40,8 +38,7 @@ constructor(public dataService: DataService, public router: Router) { }
 
 ngOnInit() {
 
-  this.bgHomePage = 'assets/images/BGhomepage.png';
-  this.onDownloadAllRecipesFromLocalDatabase();
+    this.onDownloadAllRecipesFromLocalDatabase();
 
 }
 
@@ -49,10 +46,8 @@ ngOnInit() {
 onDownloadAllRecipesFromLocalDatabase() {
 
   this.dataService.onDownloadAllRecipesFromLocalDatabase();
-  this.Button1 = '2';
 
 }
-
 
 
 onShowTableWithAllRecipes() {
@@ -70,11 +65,9 @@ onShowTableWithAllRecipes() {
           rate: obj.rate
         });
       }
-    this.showtable = true;
-    this.Button1 = '3';
+  this.showtable = true;
 
 }
-
 
 
 
@@ -86,7 +79,6 @@ resetDataOfDownloadedAllRecipes() {
     this.dataService.resetDataOfDownloadedRecipes();
 
     this.showtable = false;
-    this.Button1 = '1';
     this.onDownloadAllRecipesFromLocalDatabase();
 
 }
@@ -203,9 +195,8 @@ onSort(num) {
     this.orderString = '-quality';
   }
   
-
-  
 }
+
 
 
 

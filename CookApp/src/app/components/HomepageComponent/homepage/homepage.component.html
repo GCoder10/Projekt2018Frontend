@@ -1,0 +1,76 @@
+<body [ngStyle]="{'background-image': 'url(' + bgHomePage + ')'}">
+
+<div class="container">
+<div class="row">
+
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+            <button (click)="onDownloadAllRecipesFromLocalDatabase()"
+                    class="btn btn-success" 
+                    *ngIf="button=='1'">
+                    LocalDatabase
+            </button> 
+            <button (click)="onShowTableWithAllRecipes()"
+                    class="btn btn-success" 
+                    *ngIf="button=='2'">
+                    GenerateTable
+            </button> 
+            <button (click)="resetDataOfDownloadedAllRecipes()" 
+                    class="btn btn-danger" 
+                    *ngIf="button=='3'">
+                    ResetTable/Arrays
+            </button> 
+      </div>
+
+              
+<div *ngIf="(showtable)"> 
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
+            <form id="filter" 
+                  class="searchingRecipeName">
+                        <i class="fa fa-book" 
+                           style="font-size:24px;padding-right:5px;">
+                        </i>
+                        <label>Filtruj przepisy po nazwie: </label>
+                        <input type="text"       
+                               class="inputName" 
+                               [(ngModel)]="termName" 
+                               [ngModelOptions]="{standalone: true}"/>
+            </form>
+
+            <form id="filterTime" 
+                  class="searchingRecipeTime">
+                        <i class="fa fa-clock-o" 
+                           style="font-size:24px;padding-right:5px;">
+                        </i>
+                        <label>Filtruj przepisy po czasie przygotowania: </label>
+                        <input id="timeForPrepare"
+                               name="timeForPrepare" 
+                               type="text" 
+                               class="input" 
+                               pattern="^(0|[1-9][0-9]*)$" 
+                               ngModel 
+                               [(ngModel)]="termTime" 
+                               [ngModelOptions]="{standalone: true}" 
+                               #timeForPrepare="ngModel"/>
+                        <span class="help-block" 
+                              *ngIf="!timeForPrepare.valid" 
+                              style="color:red;">
+                              <b>Czas przygotowania musi być liczbą!</b>
+                        </span>
+            </form> 
+
+
+      </div>
+</div>
+</div>
+</div>
+
+
+
+<app-recipes></app-recipes>
+          
+
+
+</body>
+

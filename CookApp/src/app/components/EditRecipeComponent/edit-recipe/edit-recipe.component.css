@@ -1,107 +1,104 @@
 body {
-    margin: 0;
-    padding: 0;
-    color:#6a6f8c;
+  margin: 0;
+  padding: 0;
+  color:#6a6f8c;
 	background: no-repeat center;
 	font:600 16px/18px 'Open Sans',sans-serif;
-    min-height:1000px;
-    
+  min-height:1000px;   
 }
 
 .secondBG {
-
-    top: 12%;
-    width:65%;
+  top: 12%;
+  width:65%;
 	height:90%;
 	position:absolute;
-    background:#1465e8;
-    opacity: 0.8;
-    left: 17%;
-    display: block;
-    box-shadow: 8px 13px #092d68;
-
+  background:#1465e8;
+  opacity: 0.8;
+  left: 17%;
+  display: block;
+  box-shadow: 8px 13px #092d68;
 }
 
 .secondBG .group {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .secondBG .group .button {
-    background:rgba(16, 168, 13, 0.9);
-    border:none;
-    display: block;
-    width: 30%;
-    height: 150%;
-    border-radius:25px;
-    margin-left: 34%;
-    color: black;
+  background:rgba(16, 168, 13, 0.9);
+  border:none;
+  display: block;
+  width: 30%;
+  height: 150%;
+  border-radius:25px;
+  margin-left: 34%;
+  color: black;
 }
 
 .secondBG .group .label {
-    color: #0f2c5b;
-    font-size: 16px;
-    width: 100%;
-    height: 50%;
-    border: none;
-    display: block;
+  color: #0f2c5b;
+  font-size: 16px;
+  width: 100%;
+  height: 50%;
+  border: none;
+  display: block;
 }
 
 .secondBG .group .input {
-    background:rgba(255,255,255,0.5);
-    width: 100%;
-    height: 100%;
-    color: black;
-    display: block;
-    border: none;
-    border-radius:25px;
+  background:rgba(255,255,255,0.5);
+  width: 100%;
+  height: 100%;
+  color: black;
+  display: block;
+  border: none;
+  border-radius:25px;
 }
 
 .secondBG .group .time {
-    background:rgba(255,255,255,0.5);
-    width: 20%;
-    height: 100%;
-    color: black;
-    display: block;
-    border: none;
-    border-radius:25px;
-    margin-left: 40%;
+  background:rgba(255,255,255,0.5);
+  width: 20%;
+  height: 100%;
+  color: black;
+  display: block;
+  border: none;
+  border-radius:25px;
+  margin-left: 40%;
 }
 
 .secondBG .group .recipeName {
-    background:rgba(255,255,255,0.5);
-    width: 65%;
-    height: 100%;
-    color: black;
-    display: block;
-    border: none;
-    border-radius:25px;
-    margin-left: 17%;
+  background:rgba(255,255,255,0.5);
+  width: 65%;
+  height: 100%;
+  color: black;
+  display: block;
+  border: none;
+  border-radius:25px;
+  margin-left: 17%;
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
 .secondBG .group .lvl {
-    background:rgba(255,255,255,0.5);
-    width: 20%;
-    height: 100%;
-    color: black;
-    display: block;
-    border: none;
-    border-radius:25px;
-    margin-left: 40%;
+  background:rgba(255,255,255,0.5);
+  width: 20%;
+  height: 100%;
+  color: black;
+  display: block;
+  border: none;
+  border-radius:25px;
+  margin-left: 40%;
 }
 
 .secondBG .group .quality {
-    background:rgba(255,255,255,0.5);
-    width: 20%;
-    height: 100%;
-    color: black;
-    display: block;
-    border: none;
-    border-radius:25px;
-    margin-left: 40%;
+  background:rgba(255,255,255,0.5);
+  width: 20%;
+  height: 100%;
+  color: black;
+  display: block;
+  border: none;
+  border-radius:25px;
+  margin-left: 40%;
 }
 
 .col-lg-12 {
@@ -114,18 +111,10 @@ textarea {
 	padding-right: 0;
 }
 
-.row {
+.row, .container {
 	width: 100%;
 	margin-right: 0;
 	margin-left: 0;
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.container {
-	width: 100%;
-	margin-left: 0;
-	margin-right: 0;
 	padding-left: 0;
 	padding-right: 0;
 }

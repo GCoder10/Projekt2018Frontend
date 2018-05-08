@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { DataService } from './../../shared/services/data.service';
+import { DataService } from '../../../shared/services/data.service';
 
 
 @Component({

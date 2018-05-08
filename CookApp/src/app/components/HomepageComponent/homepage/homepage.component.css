@@ -1,0 +1,62 @@
+body {
+    margin:0;
+    color:#6a6f8c;
+	background: no-repeat center;
+	font:600 16px/18px 'Open Sans',sans-serif;
+	min-height:1000px;
+}
+
+.col-lg-12 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.row, .container {
+	width: 100%;
+	margin-right: 0;
+	margin-left: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.searchingRecipeName {
+	width:50%;
+	align: left;
+	float: left;
+}
+
+.searchingRecipeTime {
+	width:50%;
+	align: left;
+	float: left;
+}
+
+.input {
+
+	width:100%;
+	color:#fff;
+	display:block;
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+
+}
+
+.inputName {
+
+	width:100%;
+	color:black;
+	display:block;
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+
+}
+
+@media screen and (max-width: 1887) {
+  th {
+	font-size: 1px;
+  }  
+}

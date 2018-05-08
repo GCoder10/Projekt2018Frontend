@@ -1,16 +1,14 @@
-<body [ngStyle]="{'background-image': 'url(' + bgEditForm + ')'}">
-
-
+<body [ngStyle]="{'background-image': 'url(' + bgAddingForm + ')'}">
 
 <div class="secondBG">
 <div class="container">
 <div class="row">
 
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">    
 
-            <form (ngSubmit)="onAddRecipe()" 
-                  [formGroup]="recipeForm">
-            
+            <form (ngSubmit)="onAddRecipe(f)" 
+                  #f="ngForm">
+
             <div class="group">
                 <label for="name" 
                        class="label">
@@ -19,13 +17,16 @@
                           style="font-size:24px;padding-left:5px;">
                        </i>
                 </label>
-                <input id="name" 
-                       name="name"
-                       formControlName="name"
+                <input id="name"
+                       name="name" 
+                       ngModel 
+                       required 
                        type="text" 
-                       class="recipeName">
-                <span class="help-block" 
-                      *ngIf="(name)" 
+                       class="recipeName" 
+                       pattern="[A-Za-z]{1,50}" 
+                       #name="ngModel">
+                <span class="help-block"
+                      *ngIf="!name.valid && name.touched" 
                       style="color:red;margin-left:35%;">
                       <b>Musisz wprowadzić poprawną nazwę przepisu!</b>
                 </span>
@@ -39,15 +40,16 @@
                           style="font-size:24px;padding-left:5px;">
                        </i>
                 </label>
-                <input id="timeForPrepare"  
-                       name="timeForPrepare"
+                <input id="timeForPrepare"      
+                       name="timeForPrepare" 
+                       ngModel 
                        required 
-                       type="number"
-                       formControlName="timeForPrepare" 
+                       type="number" 
                        pattern="(60|([1-5]?[0-9]))" 
-                       class="time">
+                       class="time" 
+                       #timeForPrepare="ngModel">
                 <span class="help-block"
-                      *ngIf="(timeForPrepare)" 
+                      *ngIf="!timeForPrepare.valid && timeForPrepare.touched" 
                       style="color:red;margin-left:35%;">
                       <b>Musisz wybrać poprawny czas przygotowania!</b>
                 </span>
@@ -61,22 +63,23 @@
                           style="font-size:24px;padding-left:5px;">
                        </i>
                 </label>
-                <input id="difLvl"  
+                <input id="difLvl"
                        name="difLvl" 
-                       required
-                       formControlName="difLvl" 
+                       ngModel 
+                       required 
                        type="number" 
                        pattern="(10|([0-9]))" 
-                       class="lvl">
-                <span class="help-block"    
-                      *ngIf="(difLvl)" 
+                       class="lvl" 
+                       #difLvl="ngModel">
+                <span class="help-block"
+                      *ngIf="!difLvl.valid && difLvl.touched" 
                       style="color:red;margin-left:37%;">
                       <b>Określ trudność przygotowania posiłku !</b>
                 </span>
             </div>
 
             <div class="group">
-                <label for="quality" 
+                <label for="quality"            
                        class="label">
                        Określ jakość przepisu (skala 1-10)
                        <i class="fa fa-thumbs-o-up" 
@@ -85,13 +88,14 @@
                 </label>
                 <input id="quality"
                        name="quality" 
-                       required
-                       formControlName="quality" 
+                       ngModel 
+                       required 
                        type="number" 
                        pattern="(10|([0-9]))" 
-                       class="quality">
+                       class="quality" 
+                       #quality="ngModel">
                 <span class="help-block"
-                      *ngIf="(quality)" 
+                      *ngIf="!quality.valid && quality.touched" 
                       style="color:red;margin-left:42%;">
                       <b>Określ jakość przepisu!</b>
                 </span>
@@ -105,42 +109,37 @@
                           style="font-size:24px;padding-left:5px;">
                        </i>
                 </label>
-                <textarea rows="8"   
+                <textarea rows="8"
                           cols="50" 
                           id="about" 
                           name="about" 
-                          type="text"
-                          formControlName="about" 
+                          type="text" 
                           pattern=".{1,550}" 
                           class="input" 
-                          required>
+                          ngModel 
+                          required 
+                          #about="ngModel">
                 </textarea>
                 <span class="help-block"
-                      *ngIf="(about)" 
+                      *ngIf="!about.valid && about.touched" 
                       style="color:red;margin-left:37%;">
                       <b>Wprowadź poprawny opis przepisu !</b>
                 </span>
             </div>
 
             <div class="group">
-                <input type="button"     
-                       class="button"
-                       (click)="onUpdateFormByDownloadedData()"
-                       value="Aktualizuj formularz">
-            </div>
-
-            <div class="group">
                 <input type="submit"
                        class="button"
-                       value="Zapisz zmiany" 
-                       [disabled]="!recipeForm.valid">
+                       value="Dodaj przepis" 
+                       [disabled]="!f.valid">
             </div>
 
-           
+
             </form>
-         
-  </div>
+
 </div>
+
+  </div>
 </div>
 </div>
 </body>
