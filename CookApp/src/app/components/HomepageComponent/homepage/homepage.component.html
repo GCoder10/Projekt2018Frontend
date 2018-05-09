@@ -1,30 +1,13 @@
 <body [ngStyle]="{'background-image': 'url(' + bgHomePage + ')'}">
 
+      <app-generate-table-button #onCallShowTableMethodButton (click)="onShowTableWithAllRecipes()" *ngIf="button=='1'"></app-generate-table-button>
+      <app-reset-table-button #onCallResetTableMethodButton (click)="resetDataOfDownloadedAllRecipes()" *ngIf="button=='2'"></app-reset-table-button>
+
 <div class="container">
 <div class="row">
-
-      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-            <button (click)="onDownloadAllRecipesFromLocalDatabase()"
-                    class="btn btn-success" 
-                    *ngIf="button=='1'">
-                    LocalDatabase
-            </button> 
-            <button (click)="onShowTableWithAllRecipes()"
-                    class="btn btn-success" 
-                    *ngIf="button=='2'">
-                    GenerateTable
-            </button> 
-            <button (click)="resetDataOfDownloadedAllRecipes()" 
-                    class="btn btn-danger" 
-                    *ngIf="button=='3'">
-                    ResetTable/Arrays
-            </button> 
-      </div>
-
               
 <div *ngIf="(showtable)"> 
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
 
             <form id="filter" 
                   class="searchingRecipeName">
@@ -36,7 +19,7 @@
                                class="inputName" 
                                [(ngModel)]="termName" 
                                [ngModelOptions]="{standalone: true}"/>
-            </form>
+            </form> 
 
             <form id="filterTime" 
                   class="searchingRecipeTime">
@@ -60,16 +43,174 @@
                         </span>
             </form> 
 
-
       </div>
 </div>
 </div>
 </div>
+  
+<div class="container">
+<div class="row">
 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
+<div *ngIf="(showtable)">
+<div class="scroll">  
+<table>
 
-<app-recipes></app-recipes>
-          
+   <thead>
+    <th class="idCol">
+          id
+          <i class="fa fa-key" 
+             style="font-size:24px;padding-left:5px;">
+          </i>
+    </th>
+    <th class="nameCol">
+          Nazwa przepisu
+          <i class="fa fa-book" 
+             style="font-size:24px;padding-left:5px;">
+          </i>
+          <i class="fa fa-chevron-down" 
+             style="font-size:16px;padding-left:5px;" 
+             (click)="onSort(3)">
+          </i>
+          <i class="fa fa-chevron-up" 
+             style="font-size:16px" 
+             (click)="onSort(4)">
+          </i>
+    </th> 
+    <th class="timeCol">
+          Czas przygotowania
+          <i class="fa fa-clock-o" 
+             style="font-size:24px;padding-left:5px;">
+          </i>
+          <i class="fa fa-chevron-down" 
+             style="font-size:16px;padding-left:5px;" 
+             (click)="onSort(1)">
+          </i>
+          <i class="fa fa-chevron-up" 
+             style="font-size:16px" 
+             (click)="onSort(2)">
+          </i>
+    </th>
+    <th class="difLvlCol">
+          Poziom trudności
+          <i class="fa fa-line-chart" 
+             style="font-size:24px;padding-left:5px;">
+          </i>
+          <i class="fa fa-chevron-down" 
+             style="font-size:16px;padding-left:5px;" 
+             (click)="onSort(5)">
+          </i>
+          <i class="fa fa-chevron-up" 
+             style="font-size:16px" 
+             (click)="onSort(6)">
+          </i>
+    </th>
+    <th class="qualityCol">
+          Jakość przepisu
+          <i class="fa fa-thumbs-o-up" 
+             style="font-size:24px;padding-left:5px;">
+          </i>
+          <i class="fa fa-chevron-down" 
+             style="font-size:16px;padding-left:5px;" 
+             (click)="onSort(7)">
+          </i>
+          <i class="fa fa-chevron-up"
+             style="font-size:16px" 
+             (click)="onSort(8)">
+          </i>
+    </th>
+    <th>
+          Opis
+          <i class="fa fa-pencil-square" 
+             style="font-size:24px;padding-left:5px;">
+          </i>
+    </th>
+   </thead>
+
+  <tbody *ngFor="let obj of dataOfAllRecipes2 | filterNameOfRecipe:termName | filterTimeForPrepare:termTime | orderBy: orderString"> 
+  <tr (click)="isCollapsed = !isCollapsed && checkId(obj.id)"> 
+    <td class="idCol"> 
+          {{ obj.id }} 
+    </td>
+    <td class="nameCol"> 
+          {{ obj.name }} 
+    </td> 
+    <td class="timeCol"> 
+          {{ obj.time }} minut
+    </td>
+    <td class="difLvlCol">
+          <rating [(ngModel)]="obj.lvl" 
+                  [max]="max"
+                  [readonly]="isReadonly">
+          </rating> 
+          {{ obj.lvl }} / 10
+    </td>  
+    <td class="qualityCol">
+          <rating [(ngModel)]="obj.quality" 
+                  [max]="max" 
+                  [readonly]="isReadonly">
+          </rating> 
+          {{ obj.quality }} / 10
+    </td>
+    <td> 
+          {{ obj.description }} 
+    </td>
+  </tr> 
+
+  <tr *ngIf="(isCollapsed) && obj.id == idChecked">
+    <td colspan="2">
+      <div>
+          <button type="button" 
+                  class="btn btn-success" 
+                  (click)="onEditSelectedRecipe(obj.name, obj.time, obj.lvl, obj.quality, obj.description)">
+                  Edytuj przepis
+          </button>
+          {{ obj.name }}
+      </div>
+    </td>
+    <td colspan="2">
+      <div>
+          <button type="button" 
+                  class="btn btn-danger" 
+                  (click)="onDeleteRecipeByIdFromDatabase(obj.id)">
+                  Usuń przepis
+          </button>
+          {{ obj.name }}
+      </div>
+    </td>
+    <td colspan="2">
+      <div>
+          <button type="button" 
+                  class="btn btn-info" 
+                  (click)="onRateRecipeByUser(obj.id)">
+                  Oceń przepis
+          </button>
+          <rating [(ngModel)]="rateByUser" 
+                  [max]="max" 
+                  [readonly]="isReadonlyUserRating"
+                  (onHover)="hoveringOver($event)" 
+                  (onLeave)="resetStar()"
+                  [titles]="['one','two','three']">
+          </rating>
+          <span class="label"
+                [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                [ngStyle]="{display: (overStar && !isReadonlyUserRating) ? 'inline' : 'none'}">
+                {{percent}}%
+          </span>
+          Obecna ocena: {{ obj.rate }} / 10
+      </div>
+    </td>
+  </tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
 
 
 </body>

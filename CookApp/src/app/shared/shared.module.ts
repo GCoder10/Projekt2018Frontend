@@ -35,7 +35,7 @@ import { FilterTimeForPreparePipe } from './pipes/filter-time-for-prepare.pipe';
       ReactiveFormsModule,
       HttpModule,
       RatingModule
-  ],
+  ]
 })
 
 
