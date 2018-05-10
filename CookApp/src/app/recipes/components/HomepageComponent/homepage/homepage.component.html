@@ -1,7 +1,19 @@
 <body [ngStyle]="{'background-image': 'url(' + bgHomePage + ')'}">
 
-      <app-generate-table-button #onCallShowTableMethodButton (click)="onShowTableWithAllRecipes()" *ngIf="button=='1'"></app-generate-table-button>
-      <app-reset-table-button #onCallResetTableMethodButton (click)="resetDataOfDownloadedAllRecipes()" *ngIf="button=='2'"></app-reset-table-button>
+
+
+      <app-generate-table-button #onCallShowTableMethodButton 
+                                 (click)="onShowTableWithAllRecipes()" 
+                                 *ngIf="button=='1'">
+      </app-generate-table-button>
+
+      <app-reset-table-button #onCallResetTableMethodButton 
+                              (click)="resetDataOfDownloadedAllRecipes()" 
+                              *ngIf="button=='2'">
+      </app-reset-table-button>
+
+
+
 
 <div class="container">
 <div class="row">
@@ -47,7 +59,7 @@
 </div>
 </div>
 </div>
-  
+ 
 <div class="container">
 <div class="row">
 
@@ -128,7 +140,7 @@
     </th>
    </thead>
 
-  <tbody *ngFor="let obj of dataOfAllRecipes2 | filterNameOfRecipe:termName | filterTimeForPrepare:termTime | orderBy: orderString"> 
+  <tbody *ngFor="let obj of dataOfAllDownloadedRecipes | filterNameOfRecipe:termName | filterTimeForPrepare:termTime | orderBy: orderString"> 
   <tr (click)="isCollapsed = !isCollapsed && checkId(obj.id)"> 
     <td class="idCol"> 
           {{ obj.id }} 

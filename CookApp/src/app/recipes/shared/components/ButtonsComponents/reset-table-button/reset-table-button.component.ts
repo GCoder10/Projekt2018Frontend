@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HomepageComponent } from './../../HomepageComponent/homepage/homepage.component';
+import { HomepageComponent } from '../../../../components/HomepageComponent/homepage/homepage.component';
 
 
 

@@ -1,124 +1,121 @@
 body {
-  margin: 0;
-  padding: 0;
-  color:#6a6f8c;
-	background: no-repeat center;
-	font:600 16px/18px 'Open Sans',sans-serif;
-  min-height:1000px;   
+    margin: 0;
+    padding: 0;
+    color:#6a6f8c;
+    background: no-repeat center;
+    font:600 16px/18px 'Open Sans',sans-serif;
+    min-height:1000px;   
 }
 
-.secondBG {
-  top: 12%;
-  width:65%;
-	height:90%;
-	position:absolute;
-  background:#1465e8;
-  opacity: 0.8;
-  left: 17%;
-  display: block;
-  box-shadow: 8px 13px #092d68;
-}
-
-.secondBG .group {
-  margin-bottom: 40px;
-}
-
-.secondBG .group .button {
-  background:rgba(16, 168, 13, 0.9);
-  border:none;
-  display: block;
-  width: 30%;
-  height: 150%;
-  border-radius:25px;
-  margin-left: 34%;
-  color: black;
-}
-
-.secondBG .group .label {
-  color: #0f2c5b;
-  font-size: 16px;
-  width: 100%;
-  height: 50%;
-  border: none;
-  display: block;
-}
-
-.secondBG .group .input {
-  background:rgba(255,255,255,0.5);
-  width: 100%;
-  height: 100%;
-  color: black;
-  display: block;
-  border: none;
-  border-radius:25px;
-}
-
-.secondBG .group .time {
-  background:rgba(255,255,255,0.5);
-  width: 20%;
-  height: 100%;
-  color: black;
-  display: block;
-  border: none;
-  border-radius:25px;
-  margin-left: 40%;
-}
-
-.secondBG .group .recipeName {
-  background:rgba(255,255,255,0.5);
-  width: 65%;
-  height: 100%;
-  color: black;
-  display: block;
-  border: none;
-  border-radius:25px;
-  margin-left: 17%;
-}
-
-textarea {
-  resize: none;
-}
-
-.secondBG .group .lvl {
-  background:rgba(255,255,255,0.5);
-  width: 20%;
-  height: 100%;
-  color: black;
-  display: block;
-  border: none;
-  border-radius:25px;
-  margin-left: 40%;
-}
-
-.secondBG .group .quality {
-  background:rgba(255,255,255,0.5);
-  width: 20%;
-  height: 100%;
-  color: black;
-  display: block;
-  border: none;
-  border-radius:25px;
-  margin-left: 40%;
-}
-
-.col-lg-12 {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.col-sm-12 {
-	padding-left: 0;
-	padding-right: 0;
+.col-lg-12, .col-sm-12 {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .row, .container {
-	width: 100%;
-	margin-right: 0;
-	margin-left: 0;
-	padding-left: 0;
-	padding-right: 0;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
+/*----------------------
+		     #Form
+----------------------*/
+.secondBG {
+    top: 12%;
+    width:65%;
+    height:90%;
+    position:absolute;
+    background:#1465e8;
+    opacity: 0.8;
+    left: 17%;
+    display: block;
+    box-shadow: 8px 13px #092d68;
+}
+
+/* Form Groups */
+.secondBG .group {
+    margin-bottom: 40px;
+}
+
+/* Form Button */
+.secondBG .group .button {
+    background:rgba(16, 168, 13, 0.9);
+    border:none;
+    display: block;
+    width: 30%;
+    height: 150%;
+    border-radius:25px;
+    margin-left: 34%;
+    color: black;
+}
+
+/* Form Labels */
+.secondBG .group .label {
+    color: #0f2c5b;
+    font-size: 16px;
+    width: 100%;
+    height: 50%;
+    border: none;
+    display: block;
+}
+
+/* Form Description Input */
+.secondBG .group .input {
+    background:rgba(255,255,255,0.5);
+    width: 100%;
+    height: 100%;
+    color: black;
+    display: block;
+    border: none;
+    border-radius:25px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Form Time Input *//* Form Diflvl Input */
+.secondBG .group .time, .secondBG .group .lvl {
+    background:rgba(255,255,255,0.5);
+    width: 20%;
+    height: 100%;
+    color: black;
+    display: block;
+    border: none;
+    border-radius:25px;
+    margin-left: 40%;
+}
+
+/* Form Name Input */
+.secondBG .group .recipeName {
+    background:rgba(255,255,255,0.5);
+    width: 65%;
+    height: 100%;
+    color: black;
+    display: block;
+    border: none;
+    border-radius:25px;
+    margin-left: 17%;
+}
+
+/* Form Quality Input */
+.secondBG .group .quality {
+    background:rgba(255,255,255,0.5);
+    width: 20%;
+    height: 100%;
+    color: black;
+    display: block;
+    border: none;
+    border-radius:25px;
+    margin-left: 40%;
+}
+
+/*----------------------
+		  #Responsive
+----------------------*/
 @media screen and (max-width: 922px) {
   span {
     margin-left: 0;
@@ -174,5 +171,4 @@ textarea {
   .secondBG .group .button {
     font-size: 10px;
   }
-
 }
