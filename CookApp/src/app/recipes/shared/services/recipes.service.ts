@@ -17,6 +17,7 @@ constructor(public dataService: DataService) { }
 
 onDownloadAllRecipesFromLocalDatabase() {
 
+  this.resetDataOfDownloadedAllRecipes();
   this.dataService.onDownloadAllRecipesFromLocalDatabase();
 
 }

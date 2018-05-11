@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HomepageComponent } from '../../../../components/HomepageComponent/homepage/homepage.component';
+import { RecipesComponent } from '../../../../components/RecipesComponent/recipes/recipes.component';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { HomepageComponent } from '../../../../components/HomepageComponent/home
 
 
 export class GenerateTableButtonComponent implements OnInit {
-@ViewChild("onCallShowTableMethodButton") onCallShowTableMethodButton: HomepageComponent;
+@ViewChild("onCallShowTableMethodButton") onCallShowTableMethodButton: RecipesComponent;
 
   constructor() { }
 

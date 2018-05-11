@@ -6,13 +6,13 @@ import { RecipesService } from './../../../shared/services/recipes.service';
 
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  selector: 'app-recipes',
+  templateUrl: './recipes.component.html',
+  styleUrls: ['./recipes.component.css']
 })
 
 
-export class HomepageComponent implements OnInit {
+export class RecipesComponent implements OnInit {
 
 bgHomePage: string;
 button: string = '1';

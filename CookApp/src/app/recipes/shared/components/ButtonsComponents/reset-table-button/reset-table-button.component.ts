@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HomepageComponent } from '../../../../components/HomepageComponent/homepage/homepage.component';
+import { RecipesComponent } from '../../../../components/RecipesComponent/recipes/recipes.component';
 
 
 
@@ -11,7 +11,7 @@ import { HomepageComponent } from '../../../../components/HomepageComponent/home
 
 
 export class ResetTableButtonComponent implements OnInit {
-@ViewChild("onCallResetTableMethodButton") onCallResetTableMethodButton: HomepageComponent;
+@ViewChild("onCallResetTableMethodButton") onCallResetTableMethodButton: RecipesComponent;
 
   constructor() { }
 
