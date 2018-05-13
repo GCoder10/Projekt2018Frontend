@@ -62,7 +62,7 @@ body {
     display: block;
 }
 
-/* Form Description Input */
+/* Form descriptionOfRecipe Input */
 .secondBG .group .input {
     background:rgba(255,255,255,0.5);
     width: 100%;
@@ -77,7 +77,7 @@ textarea {
     resize: none;
 }
 
-/* Form Time Input *//* Form Diflvl Input */
+/* Form timeForPrepareRecipe Input *//* Form difficultLvl Input */
 .secondBG .group .time, .secondBG .group .lvl {
     background:rgba(255,255,255,0.5);
     width: 20%;
@@ -89,7 +89,7 @@ textarea {
     margin-left: 40%;
 }
 
-/* Form Name Input */
+/* Form nameOfRecipe Input */
 .secondBG .group .recipeName {
     background:rgba(255,255,255,0.5);
     width: 65%;
@@ -101,7 +101,7 @@ textarea {
     margin-left: 17%;
 }
 
-/* Form Quality Input */
+/* Form qualityOfRecipe Input */
 .secondBG .group .quality {
     background:rgba(255,255,255,0.5);
     width: 20%;

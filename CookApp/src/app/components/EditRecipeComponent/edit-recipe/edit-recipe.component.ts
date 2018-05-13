@@ -1,4 +1,4 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../../../shared/services/data.service';
@@ -13,54 +13,47 @@ import { DataService } from '../../../shared/services/data.service';
 export class EditRecipeComponent implements OnInit {
 
 bgEditForm: string;
-recipeForm: FormGroup;
 recipeObject: any;
 
 
-  constructor(public dataService: DataService, private router: Router) { 
+constructor(public dataService: DataService, private router: Router) { }
 
-      this.recipeForm = new FormGroup({
-          name: new FormControl('', Validators.required),
-          timeForPrepare: new FormControl('', Validators.required),
-          difLvl: new FormControl('', Validators.required),
-          quality: new FormControl('', Validators.required),
-          about: new FormControl('', Validators.required)
-      }); 
-}
-
+nameOfRecipe: string;
+timeForPrepareRecipe: string;
+difficultLvl: string;
+qualityOfRecipe: string;
+descriptionOfRecipe: string;
 
 
 ngOnInit() {
 
+  this.recipeObject = this.dataService.recipeToEdit;
   this.bgEditForm = 'assets/images/editingFormBG.jpg';
-
+  if(this.recipeObject != null) {
+      /*  for (let obj of this.recipeObject) {
+              this.nameOfRecipe = obj.name,
+              this.timeForPrepareRecipe = obj.time,
+              this.difficultLvl = obj.lvl,
+              this.qualityOfRecipe = obj.quality,
+              this.descriptionOfRecipe = obj.description
+        } */
+  }
+  
 }
 
 
 
-onUpdateFormByDownloadedData() {
+onEditRecipe(form: NgForm) {
+
+    var nameOfRecipe = form.value.nameOfRecipe;
+    var timeForPrepareRecipe = form.value.timeForPrepareRecipe.toString();
+    var difficultLvl = form.value.difficultLvl.toString();
+    var qualityOfRecipe = form.value.qualityOfRecipe.toString();
+    var descriptionOfRecipe = form.value.descriptionOfRecipe;
 
 
-this.recipeObject = this.dataService.recipeToEdit;
-console.log(this.recipeObject);
+    console.log(nameOfRecipe, timeForPrepareRecipe, difficultLvl, qualityOfRecipe, descriptionOfRecipe);
 
-
-for (let obj of this.recipeObject) {
-this.recipeForm.setValue({
-    name: obj.name,
-    timeForPrepare: obj.time,
-    difLvl: obj.lvl,
-    quality: obj.quality,
-    about: obj.description
-});
-}
-
-}
-
-
-
-onAddRecipe() {
-  console.log(this.recipeForm);
 }
 
 

@@ -10,7 +10,7 @@ export class DataService{
   recipeToEdit: any;
   baseUrl: string = 'http://localhost:5000/api/recipes';
 
-  constructor(private http: Http) { }
+constructor(private http: Http) { }
 
 private requestOptions() {
 
@@ -79,10 +79,13 @@ rateRecipe(Id: number, rate: string) {
 
 }
 
+
+
 sendRecipeToEditComponent(data) {
     this.recipeToEdit = data;
     this.makeRecipeToEditObservable();
 }
+
 
 
 makeRecipeToEditObservable(): Observable<any> {

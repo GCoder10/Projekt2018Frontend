@@ -79,8 +79,7 @@ onRateRecipeByUser(id,rate) {
       alertify.success('Przepis został oceniony pomyślnie');
       this.resetDataOfDownloadedAllRecipes();
     }, error => {
-      alertify.error('Podczas oceniania wystąpił błąd: ');
-      alertify.error(error);
+      alertify.error('Podczas oceniania wystąpił błąd');
     });
 
 }
@@ -95,8 +94,7 @@ onDeleteRecipeByIdFromDatabase(id) {
       alertify.success('Przepis został usunięty pomyślnie');
       this.resetDataOfDownloadedAllRecipes();
     }, error => {
-      alertify.error('Podczas usuwania wystąpił błąd: ');
-      alertify.error(error);
+      alertify.error('Podczas usuwania wystąpił błąd');
     });
 
 }

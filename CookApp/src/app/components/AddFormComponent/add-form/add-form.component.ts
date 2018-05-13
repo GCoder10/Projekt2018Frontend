@@ -13,35 +13,34 @@ export class AddFormComponent implements OnInit {
 
 bgAddingForm: string;
 
-  constructor(public dataService: DataService, private router: Router) { }
+constructor(public dataService: DataService, private router: Router) { }
 
-  ngOnInit() {
+ngOnInit() {
 
     this.bgAddingForm = 'assets/images/addingFormBG.jpg';
 
-  }
+}
 
 
-  onAddRecipe(form: NgForm) {
+onAddRecipe(form: NgForm) {
 
     var alertify = require('alertifyjs/build/alertify.js');
 
-    var name = form.value.name;
-    var time = form.value.timeForPrepare.toString();
-    var lvl = form.value.difLvl.toString();
-    var quality = form.value.quality.toString();
-    var description = form.value.about;
+        var nameOfRecipe = form.value.nameOfRecipe;
+        var timeForPrepareRecipe = form.value.timeForPrepareRecipe.toString();
+        var difficultLvl = form.value.difficultLvl.toString();
+        var qualityOfRecipe = form.value.qualityOfRecipe.toString();
+        var descriptionOfRecipe = form.value.descriptionOfRecipe;
 
 
-    this.dataService.addNewRecipe(name, time, lvl, quality, description).subscribe(() => {
-      alertify.success('Przepis został dodany pomyślnie');
-      this.router.navigate(['']);
-    }, error => {
-      alertify.error('Podczas dodawania wystąpił błąd: ');
-      alertify.error(error);
-    });
+        this.dataService.addNewRecipe(nameOfRecipe, timeForPrepareRecipe, difficultLvl, qualityOfRecipe, descriptionOfRecipe).subscribe(() => {
+          alertify.success('Przepis został dodany pomyślnie');
+          this.router.navigate(['']);
+        }, error => {
+          alertify.error('Podczas dodawania wystąpił błąd');
+        });
 
-  }
+}
 
 
 }

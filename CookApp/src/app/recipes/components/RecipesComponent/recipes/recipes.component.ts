@@ -14,7 +14,7 @@ import { RecipesService } from './../../../shared/services/recipes.service';
 
 export class RecipesComponent implements OnInit {
 
-bgHomePage: string;
+bgRecipes: string;
 button: string = '1';
 dataOfAllDownloadedRecipes: any;
 showtable: boolean;
@@ -28,15 +28,15 @@ percent: number;
 rateByUser = 1;
 isReadonlyUserRating = false;
 orderString = '';
-recipeObject = {};
+recipesObject = {};
 
 
-constructor(public recipeService: RecipesService, public router: Router) { }
+constructor(public recipesService: RecipesService, public router: Router) { }
 
 ngOnInit() {
 
-  this.bgHomePage = 'assets/images/BGhomepage.png';
-  this.recipeService.onDownloadAllRecipesFromLocalDatabase();
+  this.bgRecipes = 'assets/images/BGhomepage.png';
+  this.recipesService.onDownloadAllRecipesFromLocalDatabase();
 
 }
 
@@ -44,8 +44,8 @@ ngOnInit() {
 
 onShowTableWithAllRecipes() {
 
-      this.recipeService.onPrepareArrayWithAllDownloadedRecipes();
-      this.dataOfAllDownloadedRecipes = this.recipeService.dataOfAllRecipes2;
+      this.recipesService.onPrepareArrayWithAllDownloadedRecipes();
+      this.dataOfAllDownloadedRecipes = this.recipesService.dataOfAllRecipes2;
       this.button = '2';
       this.showtable = true;
 
@@ -57,7 +57,7 @@ resetDataOfDownloadedAllRecipes() {
 
     this.button = '1';
     this.showtable = false;
-    this.recipeService.resetDataOfDownloadedAllRecipes();
+    this.recipesService.resetDataOfDownloadedAllRecipes();
 
 }
 
@@ -75,7 +75,7 @@ checkId(data) {
 onEditSelectedRecipe(name: string, time: string, lvl: string, quality: string, description: string) {
 
 
-this.recipeObject = {
+this.recipesObject = {
     name: name,
     time: time,
     lvl: lvl,
@@ -84,7 +84,7 @@ this.recipeObject = {
 };
 
 
-  this.recipeService.sendRecipeToEditComponent(this.recipeObject);
+  this.recipesService.sendRecipeToEditComponent(this.recipesObject);
   this.router.navigate(['/edycja']);
 
 }
@@ -113,7 +113,7 @@ onRateRecipeByUser(data) {
     var id = data;
     var rate = this.rateByUser.toString();
 
-    this.recipeService.onRateRecipeByUser(id,rate);
+    this.recipesService.onRateRecipeByUser(id,rate);
     this.resetDataOfDownloadedAllRecipes();
 
 }
@@ -124,7 +124,7 @@ onDeleteRecipeByIdFromDatabase(data) {
 
     var id = data;
 
-    this.recipeService.onDeleteRecipeByIdFromDatabase(id);
+    this.recipesService.onDeleteRecipeByIdFromDatabase(id);
     this.resetDataOfDownloadedAllRecipes();
 
 }
