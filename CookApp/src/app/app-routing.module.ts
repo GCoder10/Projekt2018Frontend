@@ -1,3 +1,4 @@
+import { MongodbComponent } from './components/mongodb/mongodb.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { PageNotFoundComponent } from './shared/components/PageNotFoundComponent/page-not-found/page-not-found.component';
@@ -11,7 +12,7 @@ const appRoutes: Routes = [
   { path: '', component: RecipesComponent },
   { path: 'dodawanie', component: AddFormComponent },
   { path: 'edycja', component: EditRecipeComponent },
-
+  { path: 'mongodb', component: MongodbComponent },
 
   { path: '**', component: PageNotFoundComponent }
 
