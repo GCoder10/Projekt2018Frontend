@@ -1,3 +1,4 @@
+import { WorkersService } from './shared/services/workers.service';
 import { NgModule } from "@angular/core";
 import { SharedModule } from './../shared/shared.module';
 import { AddFormComponent } from './AddFormComponent/add-form/add-form.component';
@@ -13,6 +14,7 @@ import { MongodbComponent } from './mongodb/mongodb.component';
     AddFormComponent,
     MongodbComponent
   ],
+  providers: [ WorkersService ],
   exports: [
     EditRecipeComponent,
     AddFormComponent,

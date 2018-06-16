@@ -1,3 +1,171 @@
 <body [ngStyle]="{'background-image': 'url(' + bgRecipes + ')'}">
 
+            <button (click)="onDownloadAllWorkersFromLocalDatabase()" 
+                    class="btn btn-info" 
+                    *ngIf="Button1=='1'">
+                    LocalDatabase
+            </button>   
+            <button (click)="onShowTableWithAllWorkers()" 
+                    class="btn btn-success" 
+                    *ngIf="Button1=='2'">
+                    GenerateTable
+            </button> 
+            <button (click)="resetDataOfDownloadedAllWorkers()" 
+                    class="btn btn-danger" 
+                    *ngIf="Button1=='3'">
+                    ResetTable/Arrays
+            </button> 
+
+<hr>
+
+<div class="container">
+      <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div *ngIf="(showtable)">
+                        <div class="scroll">  
+
+
+                                    <table>
+
+                                    <thead>
+                                    <th class="surnameCol">
+                                          Nazwisko
+                                          <i class="fa fa-book" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(1)">
+                                          </i>
+                                          <i class="fa fa-chevron-up" 
+                                             style="font-size:16px" 
+                                             (click)="onSort(2)">
+                                          </i>
+                                    </th> 
+                                    <th class="nameCol">
+                                          Imie
+                                          <i class="fa fa-id-badge" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(3)">
+                                          </i>
+                                          <i class="fa fa-chevron-up" 
+                                             style="font-size:16px" 
+                                             (click)="onSort(4)">
+                                          </i>
+                                    </th>
+                                    <th class="cityCol">
+                                          Miasto
+                                          <i class="fa fa-building" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(5)">
+                                          </i>
+                                          <i class="fa fa-chevron-up" 
+                                             style="font-size:16px" 
+                                             (click)="onSort(6)">
+                                          </i>
+                                    </th>
+                                    <th class="streetCol">
+                                          Ulica
+                                          <i class="fa fa-send" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(7)">
+                                          </i>
+                                          <i class="fa fa-chevron-up"
+                                             style="font-size:16px" 
+                                             (click)="onSort(8)">
+                                          </i>
+                                    </th>
+                                    <th class="emailCol">
+                                          Email
+                                          <i class="fa fa-envelope-o" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(9)">
+                                          </i>
+                                          <i class="fa fa-chevron-up"
+                                             style="font-size:16px" 
+                                             (click)="onSort(10)">
+                                          </i>
+                                    </th>
+                                    <th class="peselCol">
+                                          Pesel
+                                          <i class="fa fa-drivers-license-o" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                    </th>
+                                    <th class="passCol">
+                                          Password
+                                          <i class="fa fa-cogs" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                    </th>
+
+                                    </thead>
+
+                                    <tbody *ngFor="let obj of dataOfAllWorkers2 | 
+                                                              orderBy: orderString">
+                                    <tr (click)="isCollapsed = !isCollapsed && checkPesel(obj.pesel)">
+                                          <td class="surnameCol"> 
+                                                {{ obj.surname }} 
+                                          </td> 
+                                          <td class="nameCol"> 
+                                                {{ obj.name }}
+                                          </td>
+                                          <td class="cityCol">
+                                                {{ obj.city }}
+                                          </td>  
+                                          <td class="streetCol">
+                                                {{ obj.street }}
+                                          </td>
+                                          <td class="emailCol"> 
+                                                {{ obj.email }} 
+                                          </td>
+                                          <td class="peselCol"> 
+                                                {{ obj.pesel }} 
+                                          </td>
+                                          <td class="passCol"> 
+                                                {{ obj.pass }} 
+                                          </td>
+                                    </tr> 
+
+                                    <tr *ngIf="(isCollapsed) && obj.pesel == peselChecked">
+                                          <td colspan="2">
+                                                <div>
+                                                {{ obj.name }}
+                                                </div>
+                                          </td>
+                                          <td colspan="2">
+                                                <div>
+                                                {{ obj.surname }}
+                                                </div>
+                                          </td>
+                                          <td colspan="3">
+                                                <div>
+                                                {{ obj.pesel }}
+                                                </div>
+                                          </td>
+                                    </tr>
+                                    </tbody>
+
+                              </table>
+
+
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
+
+
 </body>
